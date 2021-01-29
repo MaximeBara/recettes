@@ -3,6 +3,7 @@ package fr.m2i.recettes.models;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
@@ -15,7 +16,8 @@ public class Recette {
 	private String id;
 	private String nom;
 	private List<Ingredient> listIngredients;
-	private List<Categorie> listCategories;
+	@DBRef()
+	private Categorie categorie;
 	private String description;
 
 	public Recette() {
@@ -53,15 +55,15 @@ public class Recette {
 	/**
 	 * @return the listCategories
 	 */
-	public List<Categorie> getListCategories() {
-		return listCategories;
+	public Categorie getCategorie() {
+		return categorie;
 	}
 
 	/**
 	 * @param listCategories the listCategories to set
 	 */
-	public void setListCategories(List<Categorie> listCategories) {
-		this.listCategories = listCategories;
+	public void setListCategories(Categorie categorie) {
+		this.categorie = categorie;
 	}
 
 	/**

@@ -1,19 +1,10 @@
 package fr.m2i.recettes.models;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import lombok.Data;
-
-@Data
-@Document("ingredients")
 public class Ingredient {
 
-	@Id
-	private String id;
 	private String nom;
 	private double quantite;
-	private int unite;
+	private String unite;
 
 	public Ingredient() {
 
@@ -50,14 +41,14 @@ public class Ingredient {
 	/**
 	 * @return the unite
 	 */
-	public int getUnite() {
+	public String getUnite() {
 		return unite;
 	}
 
 	/**
 	 * @param unite the unite to set
 	 */
-	public void setUnite(int unite) {
+	public void setUnite(String unite) {
 		this.unite = unite;
 	}
 
